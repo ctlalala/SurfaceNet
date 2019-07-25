@@ -88,7 +88,7 @@ net = nn.DataParallel(net, device_ids = device_ids)
 epoch_size = len(dataset) // cfg.N
 step_size = epoch_size*1
 # optimizer = optim.SGD(net.parameters(), lr=0.01)
-optimizer = optim.Adam(net.parameters(), lr=0.01)
+optimizer = optim.Adam(net.parameters(), lr=0.0001)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size, gamma=0.1, last_epoch=-1)
 # define loss function
 criterion = VoxelLoss(alpha=1.5, beta=1)
